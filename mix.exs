@@ -21,7 +21,7 @@ defmodule HunterEx.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      "explorer": "https://github.com/zchbndcc9/eXplorer" 
+      { :explore, git: "https://github.com/zchbndcc9/eXplorer" }
     ]
   end
 end
