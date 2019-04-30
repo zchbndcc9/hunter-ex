@@ -2,7 +2,9 @@ defmodule ProcessorTest do
   use ExUnit.Case, async: true
   require Processor, as: P
 
-  test "some method without param" do
-    assert P.tokenize == {:ok}
+  describe "query processing when" do
+    test "when query is 'stop'" do
+      assert P.tokenize("stop") == {:stop, _}
+    end
   end
 end
