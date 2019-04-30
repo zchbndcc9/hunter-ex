@@ -4,8 +4,17 @@ defmodule Processor do
   end
 
   def tokenize(query) do
-    query
-    |> String.split(" ")
-    |> &({:ok, &1}).()
+    tokens = 
+      query
+      |> String.split(" ")
+      |> Enum.map(fn string -> trim_word(string) end)
+      |> Enum.reject(fn string -> string == "" end)
+
+    { :ok, tokens }
+  end
+  
+  def trim_word(string) do
+    ~r/[\n\t\r.!?\\ ,]/
+      |> Regex.replace(string, "")
   end
 end
